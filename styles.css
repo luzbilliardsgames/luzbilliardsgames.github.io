@@ -320,6 +320,47 @@ h2 {
     color: #ef4444;
 }
 
+/* Cards com emoji para jogos ainda sem arte publicada */
+.type-ludo {
+    background:
+        radial-gradient(circle at 25% 30%, rgba(239, 68, 68, 0.55), transparent 40%),
+        radial-gradient(circle at 75% 30%, rgba(34, 197, 94, 0.5), transparent 40%),
+        radial-gradient(circle at 25% 80%, rgba(59, 130, 246, 0.55), transparent 40%),
+        radial-gradient(circle at 75% 80%, rgba(234, 179, 8, 0.5), transparent 40%),
+        #111733;
+}
+
+.type-block {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 12.5% 12.5%,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 12.5% 12.5%,
+        linear-gradient(135deg, #1e3a8a 0%, #6d28d9 55%, #db2777 100%);
+}
+
+.type-verse {
+    background:
+        linear-gradient(180deg, rgba(56, 189, 248, 0.55) 0%, transparent 55%),
+        linear-gradient(0deg, #166534 0%, #15803d 28%, #0f172a 29%, #1e293b 100%);
+}
+
+.type-emoji {
+    font-size: 3rem;
+    font-size: min(16cqi, 4.2rem);
+    line-height: 1;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.type-name {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    font-size: min(8cqi, 2.2rem);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
 .game-info {
     display: flex;
     flex-direction: column;
@@ -358,6 +399,7 @@ h2 {
 
 .btn-store,
 .btn-trailer,
+.btn-tester,
 .soon-pill {
     flex: 1 1 160px;
     padding: 11px 14px;
@@ -394,10 +436,126 @@ h2 {
     background: rgba(212, 175, 55, 0.14);
 }
 
+.btn-tester {
+    background: rgba(139, 92, 246, 0.18);
+    border: 1px solid rgba(139, 92, 246, 0.75);
+    color: #e4dbff;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-tester:hover,
+.btn-tester:focus-visible {
+    background: rgba(139, 92, 246, 0.35);
+    transform: translateY(-2px);
+}
+
 .soon-pill {
     background: rgba(139, 92, 246, 0.14);
     border: 1px solid rgba(139, 92, 246, 0.6);
     color: #d6c8ff;
+}
+
+.section-subtitle a {
+    color: var(--cyan);
+}
+
+/* ---------- Seja um testador ---------- */
+.tester-section {
+    padding: 64px 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(34, 211, 238, 0.14), transparent 45%),
+        var(--bg);
+}
+
+.tester-box {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 2px solid rgba(212, 175, 55, 0.55);
+    background: linear-gradient(180deg, rgba(22, 28, 58, 0.95), rgba(17, 23, 51, 0.95));
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 40px rgba(139, 92, 246, 0.15);
+    text-align: center;
+}
+
+.tester-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.16);
+    border: 1px solid rgba(16, 185, 129, 0.6);
+    color: #6ee7b7;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.tester-box .section-subtitle {
+    margin-bottom: 32px;
+}
+
+.tester-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 18px;
+    text-align: left;
+}
+
+.tester-steps li {
+    position: relative;
+    padding: 22px 20px 20px;
+    border-radius: var(--radius);
+    background: var(--card);
+    border: 1px solid var(--line);
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--cyan));
+    color: #0a0e1f;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.tester-steps h3 {
+    color: var(--gold);
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.tester-steps p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.tester-steps a {
+    color: var(--cyan);
+    overflow-wrap: anywhere;
+}
+
+.tester-steps strong {
+    color: var(--text);
+}
+
+.tester-cta {
+    margin-top: 30px;
+}
+
+@media (min-width: 640px) {
+    .tester-box {
+        padding: 48px 40px;
+    }
 }
 
 /* ---------- Próximos projetos ---------- */
