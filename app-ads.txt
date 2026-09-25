@@ -1,4 +1,4 @@
-OWNERDOMAIN=tonnyluz1983.github.io
+OWNERDOMAIN=luzbilliardsgames.github.io
 
 # Google AdMob
 google.com, pub-9229929031543092, DIRECT, f08c47fec0942fa0
