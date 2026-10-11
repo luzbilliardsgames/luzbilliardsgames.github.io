@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Ninja — Em breve na Google Play</title>
+<meta name="description" content="Ember Ninja: ação ninja 2D em HD para Android. Combos, parry, 8 mundos, 24 fases, 8 guardiões e sem game over. Em breve na Google Play.">
+<meta property="og:title" content="Ember Ninja">
+<meta property="og:description" content="Ação ninja 2D em HD. Em breve na Google Play.">
+<meta property="og:image" content="https://luzbilliardsgames.github.io/game-ember-ninja.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon_512.png">
+<style>
+  :root { --bg:#0e0814; --panel:#1a0f1e; --ember:#ffa840; --red:#e22c2c; --text:#fff6ec; --dim:#c9b3a6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 "Segoe UI", Roboto, system-ui, sans-serif; }
+  a { color:var(--ember); }
+  header { position:relative; min-height:88vh; display:flex; align-items:center; justify-content:flex-start; text-align:center;
+           background:linear-gradient(90deg, rgba(14,8,20,.55), rgba(14,8,20,0) 60%), linear-gradient(rgba(14,8,20,0) 55%, var(--bg)), url(assets/hero_bg.jpg) 62% center/cover; padding:48px 6vw; }
+  header img.logo { width:min(520px, 80vw); filter:drop-shadow(0 6px 22px rgba(14,8,20,.8)); }
+  .tag { letter-spacing:.18em; color:var(--text); margin:4px 0 26px; font-weight:700; text-shadow:0 2px 10px #000; }
+  .soon { display:inline-block; padding:14px 30px; border:2px solid var(--ember); border-radius:40px; background:rgba(14,8,20,.85);
+          font-weight:800; letter-spacing:.08em; box-shadow:0 0 24px rgba(255,168,64,.35); }
+  .lang { position:absolute; top:16px; right:16px; }
+  .lang button { background:rgba(14,8,20,.6); color:var(--text); border:1px solid var(--dim); border-radius:6px; padding:4px 10px; cursor:pointer; }
+  main { max-width:1100px; margin:0 auto; padding:0 16px 64px; }
+  section { margin:56px 0; }
+  h2 { font-size:28px; letter-spacing:.06em; border-left:4px solid var(--red); padding-left:12px; }
+  .video { position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; background:#000; }
+  .video video, .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+  .grid img { width:100%; border-radius:10px; display:block; border:1px solid #33202c; }
+  .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid #33202c; border-radius:12px; padding:18px; }
+  .card b { color:var(--ember); }
+  footer { text-align:center; color:var(--dim); padding:32px 16px; border-top:1px solid #33202c; }
+  @media (max-width:700px) { header { justify-content:center; background-position:70% center; } }
+  [data-en] { display:none; }
+  body.en [data-en] { display:revert; }
+  body.en [data-pt] { display:none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="lang"><button onclick="document.body.classList.toggle('en')">PT / EN</button></div>
+  <div>
+    <img class="logo" src="assets/logo.png" alt="Ember Ninja">
+    <p class="tag"><span data-pt>AÇÃO NINJA 2D EM HD PARA ANDROID</span><span data-en>HD 2D NINJA ACTION FOR ANDROID</span></p>
+    <span class="soon"><span data-pt>EM BREVE NA GOOGLE PLAY</span><span data-en>COMING SOON TO GOOGLE PLAY</span></span>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>TRAILER</h2>
+    <div class="video">
+      <!-- Depois de publicar no YouTube, troque o <video> por:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+      <video src="../ember-ninja-trailer.mp4" poster="../ember-ninja-trailer-poster.jpg" controls preload="none" playsinline></video>
+    </div>
+  </section>
+  <section>
+    <h2 data-pt>O JOGO</h2><h2 data-en>THE GAME</h2>
+    <p data-pt>O Regente Oco roubou a Última Brasa e congelou o mundo no crepúsculo. Kaede, a mensageira da Guilda das Lanternas, saca a katana para trazer o sol de volta. Um jogo de ação e plataforma no espírito dos clássicos ninja, feito para o celular: cenários pintados à mão, personagens 3D com captura de movimento e combate preciso.</p>
+    <p data-en>The Hollow Regent stole the Last Ember and froze the world at dusk. Kaede, runner of the Lantern Guild, draws her katana to bring the sun back. An action platformer in the spirit of the ninja classics, built for mobile: hand-painted worlds, motion-captured 3D characters and tight combat.</p>
+    <div class="features">
+      <div class="card"><b data-pt>Combate afiado</b><b data-en>Sharp combat</b><br><span data-pt>Combo de 3 golpes, investida iai, golpe carregado, mergulho, shuriken e parry com contra-ataque.</span><span data-en>3-hit string, iai lunge, charged strike, plunge, shuriken and parry counters.</span></div>
+      <div class="card"><b data-pt>8 mundos, 24 fases</b><b data-en>8 worlds, 24 stages</b><br><span data-pt>Dos telhados com lanternas às cidadelas no céu.</span><span data-en>From lantern-lit rooftops to sky citadels.</span></div>
+      <div class="card"><b data-pt>8 guardiões</b><b data-en>8 guardians</b><br><span data-pt>Chefes com 3 fases, sinais claros e janelas para punir.</span><span data-en>Bosses with 3 phases, clear tells and punish windows.</span></div>
+      <div class="card"><b data-pt>Sem game over</b><b data-en>No game over</b><br><span data-pt>Checkpoints frequentes e retry em 1 segundo. Difícil, mas justo.</span><span data-en>Frequent checkpoints and 1-second retries. Hard, but fair.</span></div>
+      <div class="card"><b data-pt>Progressão e modos</b><b data-en>Progression and modes</b><br><span data-pt>11 amuletos, sub-armas, notas C/B/A/S, fantasma do melhor tempo, modo Mestre, Boss Rush e Desafio Diário.</span><span data-en>11 charms, sub-weapons, C/B/A/S ranks, best-run ghost, Master mode, Boss Rush and Daily Trial.</span></div>
+      <div class="card"><b data-pt>Google Play Games</b><b data-en>Google Play Games</b><br><span data-pt>31 conquistas, placares globais e save na nuvem.</span><span data-en>31 achievements, global leaderboards and cloud save.</span></div>
+      <div class="card"><b data-pt>Do seu jeito</b><b data-en>Your way</b><br><span data-pt>Toque com layout editável, controle (DualSense e Xbox) ou teclado. Meio dano, velocidade do jogo e menos flashes.</span><span data-en>Editable touch layout, gamepad (DualSense and Xbox) or keyboard. Half damage, game speed and reduced flashes.</span></div>
+      <div class="card"><b data-pt>Comece de graça</b><b data-en>Start free</b><br><span data-pt>Mundos 1 e 2 grátis. Uma compra libera o jogo todo e remove os anúncios.</span><span data-en>Worlds 1 and 2 free. One purchase unlocks the full game and removes ads.</span></div>
+    </div>
+  </section>
+  <section>
+    <h2 data-pt>IMAGENS</h2><h2 data-en>SCREENSHOTS</h2>
+    <div class="grid" id="shots"></div>
+  </section>
+</main>
+<footer>
+  © 2026 <a href="../">Luz Billiards Games</a> · <a href="https://ember-ninja-game.web.app/privacy">Política de privacidade / Privacy policy</a>
+</footer>
+<script>
+  // screenshots listed in assets/shots.json
+  fetch('assets/shots.json').then(r => r.json()).then(list => {
+    const g = document.getElementById('shots');
+    list.forEach(s => { const i = document.createElement('img'); i.src = 'assets/' + s; i.loading = 'lazy'; i.alt = 'Ember Ninja'; g.appendChild(i); });
+  }).catch(() => {});
+  if ((navigator.language || '').toLowerCase().indexOf('pt') !== 0) document.body.classList.add('en');
+</script>
+</body>
+</html>
