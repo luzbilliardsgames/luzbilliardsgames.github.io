@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIRI: As Lanternas de Arvoria — Em breve na Google Play</title>
+<meta name="description" content="KIRI: As Lanternas de Arvoria — aventura de plataforma 2D para Android. 9 mundos pintados à mão, 69 fases e chefes gigantes. Em breve na Google Play. Seja beta tester!">
+<meta property="og:title" content="KIRI: As Lanternas de Arvoria">
+<meta property="og:description" content="Aventura de plataforma 2D para Android. Em breve na Google Play.">
+<meta property="og:image" content="https://luzbilliardsgames.github.io/game-kiri.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon_512.png">
+<style>
+  :root { --bg:#120c24; --panel:#1f1638; --gold:#ffd860; --leaf:#7fd65a; --text:#fff6e6; --dim:#c3b6d8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 "Segoe UI", Roboto, system-ui, sans-serif; }
+  a { color:var(--gold); }
+  header { position:relative; min-height:86vh; display:flex; align-items:flex-end; justify-content:center; text-align:center;
+           background:linear-gradient(rgba(18,12,36,0) 45%, var(--bg)), url(assets/hero_bg.jpg) center/cover; padding:48px 16px 56px; }
+  header img.icon { width:120px; border-radius:26px; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+  h1 { margin:12px 0 4px; font-size:clamp(30px, 6vw, 56px); letter-spacing:.04em; text-shadow:0 4px 18px #000; }
+  .tag { margin:0 0 22px; font-weight:700; letter-spacing:.12em; text-shadow:0 2px 10px #000; }
+  .soon { display:inline-block; padding:14px 28px; border:2px solid var(--gold); border-radius:40px; background:rgba(18,12,36,.85);
+          font-weight:800; letter-spacing:.08em; box-shadow:0 0 24px rgba(255,216,96,.35); }
+  .lang { position:absolute; top:16px; right:16px; display:flex; gap:6px; }
+  .lang button { background:rgba(18,12,36,.65); color:var(--text); border:1px solid var(--dim); border-radius:6px; padding:4px 10px; cursor:pointer; }
+  main { max-width:1100px; margin:0 auto; padding:0 16px 64px; }
+  section { margin:56px 0; }
+  h2 { font-size:28px; letter-spacing:.06em; border-left:4px solid var(--leaf); padding-left:12px; }
+  .video { position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; background:#000; }
+  .video video { position:absolute; inset:0; width:100%; height:100%; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+  .grid img { width:100%; border-radius:10px; display:block; border:1px solid #3a2c5c; }
+  .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid #3a2c5c; border-radius:14px; padding:18px; }
+  .card b { color:var(--gold); }
+  .beta { background:linear-gradient(135deg, #2a1f4e, #1b3a2a); border:1px solid #4a3c7c; border-radius:16px; padding:26px; text-align:center; }
+  .btn { display:inline-block; margin-top:10px; padding:12px 26px; border-radius:30px; background:var(--gold); color:#1d1630; font-weight:800; text-decoration:none; }
+  footer { text-align:center; color:var(--dim); padding:32px 16px; border-top:1px solid #3a2c5c; }
+  [data-l] { display:none; }
+  body.pt [data-l="pt"], body.en [data-l="en"], body.es [data-l="es"] { display:revert; }
+</style>
+</head>
+<body class="pt">
+<header>
+  <div class="lang"><button onclick="setLang('pt')">PT</button><button onclick="setLang('en')">EN</button><button onclick="setLang('es')">ES</button></div>
+  <div>
+    <img class="icon" src="assets/icon_512.png" alt="KIRI">
+    <h1><span data-l="pt">KIRI: As Lanternas de Arvoria</span><span data-l="en">KIRI: The Lanterns of Arvoria</span><span data-l="es">KIRI: Las Linternas de Arvoria</span></h1>
+    <p class="tag"><span data-l="pt">AVENTURA DE PLATAFORMA 2D PARA ANDROID</span><span data-l="en">2D PLATFORM ADVENTURE FOR ANDROID</span><span data-l="es">AVENTURA DE PLATAFORMAS 2D PARA ANDROID</span></p>
+    <span class="soon"><span data-l="pt">EM BREVE NA GOOGLE PLAY</span><span data-l="en">COMING SOON TO GOOGLE PLAY</span><span data-l="es">MUY PRONTO EN GOOGLE PLAY</span></span>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>TRAILER</h2>
+    <div class="video"><video id="trailer" controls preload="metadata" playsinline poster="assets/poster_pt.jpg"><source src="assets/trailer_pt.mp4" type="video/mp4"></video></div>
+  </section>
+  <section>
+    <h2><span data-l="pt">O JOGO</span><span data-l="en">THE GAME</span><span data-l="es">EL JUEGO</span></h2>
+    <p data-l="pt">Arvoria era iluminada por oito Lanternas-Semente, até que o Barão Ferrugem as roubou para transformar o mundo vivo em máquina. Kiri, um pequeno broto nascido da última semente da Grande Árvore, parte numa jornada por mundos pintados à mão para trazer a luz de volta.</p>
+    <p data-l="en">Arvoria was lit by eight Lantern-Seeds, until Baron Ferrugem stole them to turn the living world into a machine. Kiri, a tiny sprout born from the Great Tree's last seed, journeys across hand-painted worlds to bring the light back.</p>
+    <p data-l="es">Arvoria brillaba con ocho Linternas-Semilla, hasta que el Barón Herrumbre las robó para convertir el mundo vivo en máquina. Kiri, un pequeño brote nacido de la última semilla del Gran Árbol, viaja por mundos pintados a mano para devolver la luz.</p>
+    <div class="features">
+      <div class="card"><b data-l="pt">9 mundos, 69 fases</b><b data-l="en">9 worlds, 69 stages</b><b data-l="es">9 mundos, 69 niveles</b><br><span data-l="pt">Campos, recifes, desertos, vulcões, ilhas no céu e a fortaleza do Barão.</span><span data-l="en">Meadows, reefs, deserts, volcanoes, sky islands and the Baron's fortress.</span><span data-l="es">Praderas, arrecifes, desiertos, volcanes, islas en el cielo y la fortaleza del Barón.</span></div>
+      <div class="card"><b data-l="pt">Cresça e voe</b><b data-l="en">Grow and fly</b><b data-l="es">Crece y vuela</b><br><span data-l="pt">Fruto-Broto deixa Kiri adulto com sementes sem limite; a Pena Celeste dá asas.</span><span data-l="en">The Bloom Fruit makes Kiri grow up with unlimited seeds; the Sky Feather gives wings.</span><span data-l="es">El Fruto-Brote hace crecer a Kiri con semillas sin límite; la Pluma Celeste da alas.</span></div>
+      <div class="card"><b data-l="pt">Monte no Gulu</b><b data-l="en">Ride Gulu</b><b data-l="es">Monta a Gulu</b><br><span data-l="pt">Um camaleão-sapo que engole inimigos e cospe de volta.</span><span data-l="en">A chameleon-frog that swallows enemies and spits them back.</span><span data-l="es">Un camaleón-rana que se traga a los enemigos y los escupe.</span></div>
+      <div class="card"><b data-l="pt">Chefes e segredos</b><b data-l="en">Bosses and secrets</b><b data-l="es">Jefes y secretos</b><br><span data-l="pt">Chefes gigantes, saídas secretas, palácios de interruptor e Sementes Douradas.</span><span data-l="en">Giant bosses, secret exits, switch palaces and Golden Seeds.</span><span data-l="es">Jefes gigantes, salidas secretas, palacios de interruptores y Semillas Doradas.</span></div>
+      <div class="card"><b data-l="pt">Todo dia tem desafio</b><b data-l="en">A challenge every day</b><b data-l="es">Un desafío cada día</b><br><span data-l="pt">Desafio do Dia, sequência de 7 lanternas, visuais para o Kiri e fantasma do seu recorde.</span><span data-l="en">Daily Challenge, 7-lantern streak, Kiri skins and your best-run ghost.</span><span data-l="es">Desafío del Día, racha de 7 linternas, aspectos para Kiri y el fantasma de tu récord.</span></div>
+      <div class="card"><b data-l="pt">Do seu jeito</b><b data-l="en">Your way</b><b data-l="es">A tu manera</b><br><span data-l="pt">Toque ajustável, controle ou teclado, modo assistido e 3 idiomas.</span><span data-l="en">Adjustable touch, gamepad or keyboard, assist mode and 3 languages.</span><span data-l="es">Táctil ajustable, mando o teclado, modo asistido y 3 idiomas.</span></div>
+    </div>
+  </section>
+  <section class="beta">
+    <h2 style="border:0;padding:0"><span data-l="pt">SEJA BETA TESTER</span><span data-l="en">BECOME A BETA TESTER</span><span data-l="es">SÉ BETA TESTER</span></h2>
+    <p data-l="pt">Entre no nosso grupo com a sua conta Google. Quando o teste abrir na Google Play, você recebe o convite para jogar antes de todo mundo.</p>
+    <p data-l="en">Join our group with your Google account. When testing opens on Google Play, you'll get the invite to play before everyone else.</p>
+    <p data-l="es">Únete a nuestro grupo con tu cuenta de Google. Cuando la prueba abra en Google Play, recibirás la invitación para jugar antes que nadie.</p>
+    <a class="btn" href="https://groups.google.com/g/beta-testers-lbg" target="_blank" rel="noopener"><span data-l="pt">Entrar no grupo de testes</span><span data-l="en">Join the beta group</span><span data-l="es">Unirme al grupo de pruebas</span></a>
+    <p><small>beta-testers-lbg@googlegroups.com</small></p>
+  </section>
+  <section>
+    <h2><span data-l="pt">IMAGENS</span><span data-l="en">SCREENSHOTS</span><span data-l="es">IMÁGENES</span></h2>
+    <div class="grid" id="shots"></div>
+  </section>
+</main>
+<footer>
+  © 2026 <a href="../">Luz Billiards Games</a> · <a href="https://kiri-arvoria.web.app">Política de privacidade / Privacy policy / Política de privacidad</a>
+</footer>
+<script>
+  function setLang(l) {
+    document.body.className = l;
+    const v = document.getElementById('trailer');
+    v.poster = 'assets/poster_' + l + '.jpg';
+    v.querySelector('source').src = 'assets/trailer_' + l + '.mp4';
+    v.load();
+  }
+  fetch('assets/shots.json').then(r => r.json()).then(list => {
+    const g = document.getElementById('shots');
+    list.forEach(s => { const i = document.createElement('img'); i.src = 'assets/' + s; i.loading = 'lazy'; i.alt = 'KIRI'; g.appendChild(i); });
+  }).catch(() => {});
+  const nl = (navigator.language || 'pt').toLowerCase();
+  setLang(nl.startsWith('pt') ? 'pt' : nl.startsWith('es') ? 'es' : 'en');
+</script>
+</body>
+</html>
