@@ -29,7 +29,7 @@
   section { margin:56px 0; }
   h2 { font-size:28px; letter-spacing:.06em; border-left:4px solid var(--leaf); padding-left:12px; }
   .video { position:relative; padding-top:56.25%; border-radius:14px; overflow:hidden; background:#000; }
-  .video video { position:absolute; inset:0; width:100%; height:100%; }
+  .video video, .video iframe { position:absolute; inset:0; width:100%; height:100%; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
   .grid img { width:100%; border-radius:10px; display:block; border:1px solid #3a2c5c; }
   .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
@@ -55,7 +55,7 @@
 <main>
   <section>
     <h2>TRAILER</h2>
-    <div class="video"><video id="trailer" controls preload="metadata" playsinline poster="assets/poster_pt.jpg"><source src="assets/trailer_pt.mp4" type="video/mp4"></video></div>
+    <div class="video"><iframe id="trailer" src="https://www.youtube.com/embed/O9OjQtlLZZY" title="Trailer KIRI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
   </section>
   <section>
     <h2><span data-l="pt">O JOGO</span><span data-l="en">THE GAME</span><span data-l="es">EL JUEGO</span></h2>
@@ -90,10 +90,8 @@
 <script>
   function setLang(l) {
     document.body.className = l;
-    const v = document.getElementById('trailer');
-    v.poster = 'assets/poster_' + l + '.jpg';
-    v.querySelector('source').src = 'assets/trailer_' + l + '.mp4';
-    v.load();
+    const ids = {pt: 'O9OjQtlLZZY', en: '8aMGpct6HnY', es: 'M868e7PtQnM'};
+    document.getElementById('trailer').src = 'https://www.youtube.com/embed/' + ids[l];
   }
   fetch('assets/shots.json').then(r => r.json()).then(list => {
     const g = document.getElementById('shots');
