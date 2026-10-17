@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MX Rush: Offroad — Motocross 3D para Android</title>
+<meta name="description" content="MX Rush: Offroad: motocross 3D para Android com largada com gate, 8 pistas, carreira com 3 classes, corridas online e quedas com física. Em breve na Google Play.">
+<meta property="og:title" content="MX Rush: Offroad">
+<meta property="og:description" content="Motocross 3D para Android. Em breve na Google Play.">
+<meta property="og:image" content="https://luzbilliardsgames.github.io/game-mx-rush-offroad.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon_512.png">
+<style>
+  :root { --bg:#0e0d0c; --panel:#1a1714; --orange:#ff8a1f; --yellow:#ffd640; --text:#f2efe9; --dim:#b4ab9f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 "Segoe UI", Roboto, system-ui, sans-serif; }
+  a { color:var(--orange); }
+  header { position:relative; min-height:88vh; display:flex; align-items:center; justify-content:center; text-align:center;
+           background:linear-gradient(rgba(14,13,12,.15), var(--bg)), url(assets/hero_bg.jpg) center/cover; padding:48px 16px; }
+  header img.icon { width:132px; border-radius:28px; box-shadow:0 8px 32px rgba(0,0,0,.6); }
+  h1 { font:italic 900 clamp(56px, 12vw, 128px)/1 Impact, "Arial Black", sans-serif; color:var(--orange); margin:18px 0 0;
+       text-shadow:0 4px 0 #000, 0 0 28px rgba(255,138,31,.35); letter-spacing:.02em; }
+  .sub { letter-spacing:.5em; font-weight:800; margin:6px 0 18px; }
+  .tag { letter-spacing:.14em; color:var(--dim); margin:0 0 28px; font-weight:600; }
+  .soon { display:inline-block; padding:14px 30px; border-radius:40px; background:var(--orange); color:#111;
+          font-weight:900; letter-spacing:.06em; box-shadow:0 0 24px rgba(255,138,31,.45); }
+  .lang { position:absolute; top:16px; right:16px; display:flex; gap:6px; }
+  .lang button { background:rgba(0,0,0,.4); color:var(--text); border:1px solid var(--dim); border-radius:6px; padding:4px 10px; cursor:pointer; font-weight:700; }
+  .lang button.on { background:var(--orange); color:#111; border-color:var(--orange); }
+  main { max-width:1100px; margin:0 auto; padding:0 16px 64px; }
+  section { margin:56px 0; }
+  h2 { font-size:28px; letter-spacing:.06em; border-left:4px solid var(--orange); padding-left:12px; }
+  .video { position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; background:#000; }
+  .video video, .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+  .grid img { width:100%; border-radius:10px; display:block; border:1px solid #2a2520; }
+  .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid #2a2520; border-radius:12px; padding:18px; }
+  .card b { color:var(--orange); }
+  footer { text-align:center; color:var(--dim); padding:32px 16px; border-top:1px solid #2a2520; }
+  [data-l]:not([data-l="pt"]) { display:none; }
+  body.en [data-l="pt"], body.es [data-l="pt"] { display:none; }
+  body.en [data-l="en"], body.es [data-l="es"] { display:revert; }
+</style>
+</head>
+<body>
+<header>
+  <div class="lang"><button data-set="pt">PT</button><button data-set="en">EN</button><button data-set="es">ES</button></div>
+  <div>
+    <img class="icon" src="assets/icon_512.png" alt="MX Rush: Offroad">
+    <h1>MX RUSH</h1>
+    <p class="sub">OFFROAD</p>
+    <p class="tag"><span data-l="pt">MOTOCROSS 3D PARA ANDROID</span><span data-l="en">3D MOTOCROSS FOR ANDROID</span><span data-l="es">MOTOCROSS 3D PARA ANDROID</span></p>
+    <span class="soon"><span data-l="pt">EM BREVE NA GOOGLE PLAY</span><span data-l="en">COMING SOON TO GOOGLE PLAY</span><span data-l="es">PRÓXIMAMENTE EN GOOGLE PLAY</span></span>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>TRAILER</h2>
+    <div class="video">
+      <!-- Depois de publicar no YouTube, troque o <video> por:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="MX Rush: Offroad — Trailer" allowfullscreen></iframe> -->
+      <video src="../mx-rush-offroad-trailer.mp4" poster="../mx-rush-offroad-trailer-poster.jpg" controls preload="metadata" playsinline></video>
+    </div>
+  </section>
+  <section>
+    <h2><span data-l="pt">O JOGO</span><span data-l="en">THE GAME</span><span data-l="es">EL JUEGO</span></h2>
+    <p data-l="pt">Segure o giro na faixa verde, espere o gate cair e dispare para o holeshot. MX Rush: Offroad é motocross de verdade no celular: física de moto com suspensão e tração, saltos enormes com pré-carga e pouso assistido, lama, areia e chuva que mudam a aderência — e quedas com o piloto voando de verdade.</p>
+    <p data-l="en">Hold the revs in the green, wait for the gate to drop and blast to the holeshot. MX Rush: Offroad is real motocross on your phone: bike physics with suspension and traction, huge jumps with pre-load and assisted landings, mud, sand and rain that change the grip — and ragdoll crashes that send your rider flying.</p>
+    <p data-l="es">Mantén las revoluciones en verde, espera a que caiga el gate y sal disparado por el holeshot. MX Rush: Offroad es motocross de verdad en tu móvil: física de moto con suspensión y tracción, saltos enormes con precarga y aterrizaje asistido, barro, arena y lluvia que cambian el agarre — y caídas con el piloto volando de verdad.</p>
+    <div class="features">
+      <div class="card"><b data-l="pt">Carreira completa</b><b data-l="en">Full career</b><b data-l="es">Carrera completa</b><br><span data-l="pt">Novato, 250 Pro e 450 Elite: campeonatos de 8 etapas, rival fixo, patrocinadores com metas e etapas eliminatórias.</span><span data-l="en">Rookie, 250 Pro and 450 Elite: 8-round championships, a fixed rival, sponsors with goals and elimination rounds.</span><span data-l="es">Novato, 250 Pro y 450 Elite: campeonatos de 8 rondas, rival fijo, patrocinadores con metas y rondas eliminatorias.</span></div>
+      <div class="card"><b data-l="pt">Online</b><b data-l="en">Online</b><b data-l="es">Online</b><br><span data-l="pt">Partida rápida por pista ou sala privada com código para correr com os amigos.</span><span data-l="en">Quick match per track or a private room with a code to race your friends.</span><span data-l="es">Partida rápida por pista o sala privada con código para correr con tus amigos.</span></div>
+      <div class="card"><b data-l="pt">8 pistas, muitos climas</b><b data-l="en">8 tracks, many climates</b><b data-l="es">8 pistas, muchos climas</b><br><span data-l="pt">Terra, areia, lama, floresta, cânion, tempestade tropical, deserto e o estádio do campeonato.</span><span data-l="en">Dirt, sand, mud, forest, canyon, tropical storm, desert and the championship stadium.</span><span data-l="es">Tierra, arena, barro, bosque, cañón, tormenta tropical, desierto y el estadio del campeonato.</span></div>
+      <div class="card"><b data-l="pt">Garagem 3D</b><b data-l="en">3D garage</b><b data-l="es">Garaje 3D</b><br><span data-l="pt">5 motos com upgrades, pinturas, 4 pilotos e capacete com cor própria. Nada de pagar para ganhar.</span><span data-l="en">5 bikes with upgrades, paints, 4 riders and custom helmet colors. No pay-to-win.</span><span data-l="es">5 motos con mejoras, pinturas, 4 pilotos y casco con color propio. Sin pagar para ganar.</span></div>
+      <div class="card"><b data-l="pt">Mais modos</b><b data-l="en">More modes</b><b data-l="es">Más modos</b><br><span data-l="pt">Freestyle com manobras, contra-relógio contra o seu fantasma, replay da corrida e desafios diários.</span><span data-l="en">Freestyle tricks, time trial against your ghost, race replays and daily challenges.</span><span data-l="es">Freestyle con trucos, contrarreloj contra tu fantasma, repetición de carrera y desafíos diarios.</span></div>
+      <div class="card"><b data-l="pt">Sua câmera</b><b data-l="en">Your camera</b><b data-l="es">Tu cámara</b><br><span data-l="pt">Primeira pessoa, próxima ou perseguição. Placares e conquistas no Google Play Games.</span><span data-l="en">First-person, close or chase. Leaderboards and achievements on Google Play Games.</span><span data-l="es">Primera persona, cercana o persecución. Clasificaciones y logros en Google Play Games.</span></div>
+    </div>
+  </section>
+  <section>
+    <h2><span data-l="pt">IMAGENS</span><span data-l="en">SCREENSHOTS</span><span data-l="es">IMÁGENES</span></h2>
+    <div class="grid" id="shots"></div>
+  </section>
+</main>
+<footer>
+  © 2026 <a href="../">Luz Billiards Games</a> · <a href="https://mx-rush-offroad.web.app/privacy.html">Política de privacidade / Privacy policy / Política de privacidad</a>
+</footer>
+<script>
+  fetch('assets/shots.json').then(r => r.json()).then(list => {
+    const g = document.getElementById('shots');
+    list.forEach(s => { const i = document.createElement('img'); i.src = 'assets/' + s; i.loading = 'lazy'; i.alt = 'MX Rush: Offroad'; g.appendChild(i); });
+  }).catch(() => {});
+  function setLang(l) {
+    document.body.classList.remove('en', 'es'); if (l !== 'pt') document.body.classList.add(l);
+    document.documentElement.lang = l === 'pt' ? 'pt-BR' : l;
+    document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.set === l));
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.set));
+  const nav = (navigator.language || '').toLowerCase();
+  setLang(nav.startsWith('pt') ? 'pt' : nav.startsWith('es') ? 'es' : 'en');
+</script>
+</body>
+</html>
