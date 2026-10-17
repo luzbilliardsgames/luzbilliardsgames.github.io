@@ -59,9 +59,7 @@
   <section>
     <h2>TRAILER</h2>
     <div class="video">
-      <!-- Depois de publicar no YouTube, troque o <video> por:
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="MX Rush: Offroad — Trailer" allowfullscreen></iframe> -->
-      <video src="../mx-rush-offroad-trailer.mp4" poster="../mx-rush-offroad-trailer-poster.jpg" controls preload="metadata" playsinline></video>
+      <iframe id="yt" src="https://www.youtube.com/embed/UCwl-PF10do" title="MX Rush: Offroad — Trailer" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
   <section>
@@ -94,6 +92,7 @@
   function setLang(l) {
     document.body.classList.remove('en', 'es'); if (l !== 'pt') document.body.classList.add(l);
     document.documentElement.lang = l === 'pt' ? 'pt-BR' : l;
+    document.getElementById('yt').src = 'https://www.youtube.com/embed/' + { pt: 'UCwl-PF10do', en: 'kwrTTh1UKwE', es: 'FM7rp2iIn0E' }[l];
     document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.set === l));
   }
   document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.set));
