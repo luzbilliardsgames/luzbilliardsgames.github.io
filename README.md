@@ -51,9 +51,8 @@ As imagens viram `.webp` (≤ 200 KB cada) em `/<slug>/img/`. Telas de preço/pa
   `/privacidade` e `/termos`, no lugar do site legal), `arquivado: true` (pula o app: a pasta do código
   está só no Google Drive; restaure a pasta e remova a flag para gerar a página).
 
-**Cravei OAB (`craveioab`)** usa `listing`/`graphics`/`package`/`legalBase` provisórios apontando para o site do app
-(`C:\Dev\SubscriptionApps\_sites\cravei-oab\brand`), porque a pasta `cravei-oab` ainda é a cópia do Cravei Concursos.
-Quando o app tiver ficha em `_aab` e `store/graphics` próprios, apague esses quatro campos.
+**Cravei OAB (`craveioab`)**: a ficha `_aab/cravei-oab-listing.json` é gerada de `cravei-oab/store/listing-pt-BR.md`
+(título, descrição curta e completa); regere-a se a ficha mudar. As telas são escolhidas em `screenshots` (sem o paywall).
 
 **Quando um app sair da Play (produção):** mude o `status` dele para `"producao"`, rode `npm run build` e faça o push.
 Antes, confira que `https://play.google.com/store/apps/details?id=com.luzbilliardsgames.<slug>` abre sem login.

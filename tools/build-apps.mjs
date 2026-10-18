@@ -41,13 +41,16 @@ function parseListing(full) {
   const out = { intro: [], features: [], plans: [], privacy: null, notes: [] };
   let seenHeading = false;
   for (let b of blocks) {
-    let lines = b.split('\n').map((l) => l.trim()).filter((l) => !/^(Dúvidas|Privacidade: https?:|Termos: https?:)/i.test(l));
+    let lines = b.split('\n').map((l) => l.trim()).filter((l) => !/^(Dúvidas|Privacidade: https?:|Termos: https?:|Excluir conta: https?:)/i.test(l));
     if (!lines.length) continue;
+    // parágrafo "AVISO: texto" (sem linha de título) vira bloco de aviso
+    const aviso = lines.length === 1 && lines[0].match(/^AVISO:\s*(.+)$/i);
+    if (aviso) { out.notes.push({ head: 'Aviso', lines: [aviso[1]] }); continue; }
     const head = lines.length > 1 && isHeading(lines[0]) ? stripEmoji(lines[0]) : null;
     const body = head ? lines.slice(1) : lines;
     const text = lines.join('\n');
     if (head) seenHeading = true;
-    if (/R\$/.test(text) || (head && /^(PLANOS?\b|.*\bGRÁTIS\b|.*\bPRO$|ASSINATURA|PREÇO)/i.test(head)) || /^(GRÁTIS|Plano grátis|[\p{L} ]+ PRO:|[\p{L} ]+ Pro:)/u.test(lines[0])) {
+    if (/R\$/.test(text) || (head && /^(PLANOS?(\s+(E\s+PREÇOS?|GRÁTIS|PAGOS?))?$|.*\bGRÁTIS\b|.*\bPRO$|ASSINATURA|PREÇO)/i.test(head)) || /^(GRÁTIS|Plano grátis|[\p{L} ]+ PRO:|[\p{L} ]+ Pro:)/u.test(lines[0])) {
       out.plans.push({ head, lines: body });
     } else if (head && /PRIVACIDADE|PRIVADO/i.test(head)) {
       out.privacy = { head, lines: body };
