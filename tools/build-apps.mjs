@@ -33,7 +33,7 @@ const titleCase = (s) => {
   return low.charAt(0).toLocaleUpperCase('pt-BR') + low.slice(1);
 };
 // Siglas que devem continuar em maiúsculas depois do titleCase
-const keepUpper = (s) => s.replace(/\b(ia|pro|gps|qr|pdf|cnh|cf|amoled)\b/gi, (m) => m.toUpperCase())
+const keepUpper = (s) => s.replace(/\b(ia|pro|gps|qr|pdf|cnh|cf|amoled|oab|fgv)\b/gi, (m) => m.toUpperCase())
   .replace(/\b(cravei|mindo|ritmo|pitada|muralia|lar|arguição)\b/gi, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase());
 
 function parseListing(full) {
@@ -187,13 +187,16 @@ ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).repl
 
 async function buildApp(app) {
   const dir = join(SRC, app.dir);
-  const listingPath = join(SRC, '_aab', `${app.dir}-listing.json`);
-  const gdir = join(dir, 'store', 'graphics');
+  // app.listing / app.graphics (relativos a sourceRoot) substituem a ficha e os gráficos da loja — para apps
+  // que ainda não têm _aab/<dir>-listing.json nem store/graphics (ex.: em-breve, ficha vinda do site do app).
+  const listingPath = app.listing ? join(SRC, app.listing) : join(SRC, '_aab', `${app.dir}-listing.json`);
+  const gdir = app.graphics ? join(SRC, app.graphics) : join(dir, 'store', 'graphics');
   if (!existsSync(listingPath) || !existsSync(gdir)) {
     console.warn(`  ! ${app.slug}: ficha ou gráficos ausentes (${app.dir}) — página não gerada`);
     return null;
   }
-  const appJson = JSON.parse(readFileSync(join(dir, 'app.json'), 'utf8')).expo;
+  // app.package: usado quando o app.json ainda não tem o pacote final (o build não lê o app.json)
+  const appJson = app.package ? { name: app.name, android: { package: app.package } } : JSON.parse(readFileSync(join(dir, 'app.json'), 'utf8')).expo;
   const pkg = appJson.android.package;
   const slug = pkg.split('.').pop();
   if (slug !== app.slug) throw new Error(`${app.dir}: slug "${app.slug}" ≠ pacote ${pkg}`);
@@ -224,7 +227,7 @@ async function buildApp(app) {
   }
   const accent = app.accent || await accentOf(icon);
   const url = `${SITE}/${slug}/`;
-  const legal = `${CFG.legalBase}/${app.legalSlug || slug}`;
+  const legal = app.legalBase || `${CFG.legalBase}/${app.legalSlug || slug}`;
   const faq = faqFor(a, L);
   const statusLabel = { producao: 'Disponível', teste: 'Em teste fechado', 'em-breve': 'Em breve' }[a.status];
   const description = `${listing.short} ${a.status === 'producao' ? 'Baixe grátis na Google Play.' : 'Em breve na Google Play.'}`.slice(0, 158);

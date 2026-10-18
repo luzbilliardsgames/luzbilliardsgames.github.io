@@ -10,6 +10,7 @@
   "_status": "producao = botão da Play + card na home | teste = em teste fechado (página com 'Em breve', fora da home) | em-breve = ainda não está na Play (página com 'Em breve', fora da home)",
   "apps": [
     { "slug": "cravei", "dir": "cravei-concursos", "status": "teste", "legalSlug": "cravei", "name": "Cravei", "category": "EducationalApplication", "site": "https://cravei-site.forja3d-web.workers.dev", "web": "https://cravei-web.forja3d-web.workers.dev" },
+    { "slug": "craveioab", "dir": "cravei-oab", "status": "em-breve", "name": "Cravei OAB", "package": "com.luzbilliardsgames.craveioab", "category": "EducationalApplication", "accent": "#0d6b62", "listing": "_sites/cravei-oab/brand/vitrine-listing.json", "graphics": "_sites/cravei-oab/brand", "legalBase": "https://cravei-oab-site.forja3d-web.workers.dev", "site": "https://cravei-oab-site.forja3d-web.workers.dev" },
     { "slug": "muralia", "dir": "muralia", "status": "teste", "legalSlug": "muralia", "category": "MultimediaApplication" },
     { "slug": "pitada", "dir": "pitada-receitas", "status": "teste", "legalSlug": "pitada", "category": "LifestyleApplication" },
     { "slug": "lar", "dir": "lar-decor", "status": "teste", "legalSlug": "lar", "category": "DesignApplication" },

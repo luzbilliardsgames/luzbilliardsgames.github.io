@@ -45,8 +45,15 @@ As imagens viram `.webp` (≤ 200 KB cada) em `/<slug>/img/`. Telas de preço/pa
 - `legalSlug`: pasta do app no site legal (`https://luz-apps-legal.forja3d-web.workers.dev/<legalSlug>/privacidade`
   e `/termos`). Alguns diferem do pacote (ex.: Luna → `luna`, Salah → `salah`).
 - Opcionais: `name`, `category` (schema.org), `accent` (cor), `site` (site próprio), `web` (versão web),
-  `screenshots`, `faq` (`[["pergunta", "resposta"], ...]`), `arquivado: true` (pula o app: a pasta do código
+  `screenshots`, `faq` (`[["pergunta", "resposta"], ...]`), `listing` / `graphics` (caminhos relativos a
+  `C:\Dev\SubscriptionApps` que substituem a ficha `_aab/<pasta>-listing.json` e `store/graphics`), `package` (pacote
+  final, quando o `app.json` ainda não o tem; o `app.json` deixa de ser lido), `legalBase` (URL base própria de
+  `/privacidade` e `/termos`, no lugar do site legal), `arquivado: true` (pula o app: a pasta do código
   está só no Google Drive; restaure a pasta e remova a flag para gerar a página).
+
+**Cravei OAB (`craveioab`)** usa `listing`/`graphics`/`package`/`legalBase` provisórios apontando para o site do app
+(`C:\Dev\SubscriptionApps\_sites\cravei-oab\brand`), porque a pasta `cravei-oab` ainda é a cópia do Cravei Concursos.
+Quando o app tiver ficha em `_aab` e `store/graphics` próprios, apague esses quatro campos.
 
 **Quando um app sair da Play (produção):** mude o `status` dele para `"producao"`, rode `npm run build` e faça o push.
 Antes, confira que `https://play.google.com/store/apps/details?id=com.luzbilliardsgames.<slug>` abre sem login.
