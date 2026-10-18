@@ -1,0 +1,12 @@
+{
+  "name": "luzbilliardsgames-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-apps.mjs",
+    "check": "node tools/build-apps.mjs --check"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
