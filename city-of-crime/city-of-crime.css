@@ -1,0 +1,91 @@
+/* City of Crime — página do jogo (usa ../styles.css do site e só acrescenta isto) */
+.coc {
+    --crime: #c81630;
+}
+
+.coc-hero {
+    position: relative;
+    padding: 72px 0 80px;
+    text-align: center;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.coc-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+}
+
+.coc-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 14, 31, 0.35) 0%, rgba(10, 14, 31, 0.75) 70%, var(--bg-2) 100%);
+}
+
+.coc-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    animation: rise 0.7s ease-out both;
+}
+
+.coc-logo {
+    width: min(420px, 80%);
+    height: auto;
+    margin: 0 auto 12px;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.6));
+}
+
+.coc-hero h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+.coc .btn-primary {
+    background: linear-gradient(135deg, var(--crime), #ff4d6d);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(200, 22, 48, 0.35);
+}
+
+.coc-video {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: #000;
+}
+
+.coc-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.coc-cta {
+    margin-top: 40px;
+}
+
+.coc .nav a[aria-current="true"] {
+    color: var(--gold);
+}
+
+.coc .footer-bottom p {
+    text-align: center;
+    color: var(--muted);
+    padding: 6px 0;
+}
