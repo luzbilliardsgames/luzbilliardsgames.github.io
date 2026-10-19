@@ -1,0 +1,13 @@
+{
+  "_doc": "Os apps saíram deste site (que agora é só de jogos) e foram para https://nextechia.com.br. Cada /<slug>/ abaixo vira um redirecionamento (meta refresh + canonical + link). Gerar: npm run build",
+  "target": "https://nextechia.com.br",
+  "apps": [
+    { "slug": "cravei", "name": "Cravei Concursos" },
+    { "slug": "craveioab", "name": "Cravei OAB" },
+    { "slug": "muralia", "name": "Muralia" },
+    { "slug": "pitada", "name": "Pitada" },
+    { "slug": "lar", "name": "Lar" },
+    { "slug": "mindo", "name": "Mindo" },
+    { "slug": "ritmo", "name": "Ritmo" }
+  ]
+}
