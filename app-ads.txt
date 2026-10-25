@@ -3,6 +3,9 @@ OWNERDOMAIN=luzbilliardsgames.github.io
 # Google AdMob
 google.com, pub-9229929031543092, DIRECT, f08c47fec0942fa0
 
+# Unity Ads (mediação AdMob)
+unity.com, 4674237776435, DIRECT, 96cabb5fbdde37a7
+
 # Unity LevelPlay / ironSource
 ironsrc.com, 684215, DIRECT
 
