@@ -24,6 +24,7 @@ const PRIVACY = {
   'neon-vanguard': 'neon-vanguard/privacy.html',
   'ember-ninja': 'https://ember-ninja-game.web.app/privacy',
   'kiri': 'https://kiri-arvoria.web.app',
+  'reservatorio-de-doces': 'reservatorio-de-doces/privacy.html',
 };
 
 let index = readFileSync(join(ROOT, 'index.html'), 'utf8');
