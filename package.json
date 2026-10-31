@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node tools/redirect-apps.mjs"
+    "build": "node tools/redirect-apps.mjs && node tools/build-games.mjs"
   }
 }
