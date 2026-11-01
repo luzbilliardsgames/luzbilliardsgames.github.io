@@ -1,4 +1,4 @@
-// Páginas de cada jogo da vitrine (SEO): /<slug>/index.html para todo jogo listado em index.html que tem screenshot.
+// Páginas de cada jogo da vitrine (SEO): /<slug>/index.html para todo jogo listado em index.html que tem screenshot ou link no título.
 // Fonte única: os cards de index.html (nome, gênero, descrição, imagem, trailer, link da Play). Também:
 //   - link de cada card para a página do jogo (título do card);
 //   - JSON-LD Organization, WebSite e ItemList na home;
@@ -41,7 +41,9 @@ const cards = [...index.matchAll(/<article class="game-card">([\s\S]*?)<\/articl
   const name = decode(info.match(/<h3>([\s\S]*?)<\/h3>/)[1].replace(/<[^>]+>/g, ''));
   const genre = decode(info.match(/<p class="game-genre">([^<]+)<\/p>/)[1]);
   const desc = decode(info.match(/<\/h3>\s*<p>([\s\S]*?)<\/p>/)[1]);
-  const slug = img ? (img[1].startsWith('game-') ? img[1].replace(/^game-/, '').replace(/\.jpg$/, '').replace(/_/g, '-') : img[1].split('/')[0]) : null;
+  // Sem imagem, o slug vem do link do título (<h3><a href="slug/">).
+  const slug = img ? (img[1].startsWith('game-') ? img[1].replace(/^game-/, '').replace(/\.jpg$/, '').replace(/_/g, '-') : img[1].split('/')[0])
+    : info.match(/<h3><a href="([a-z0-9-]+)\/">/)?.[1] ?? null;
   return { name, genre, desc, slug, img: img ? { src: img[1], alt: decode(img[2]) } : null, play, testLink, badge, testing: /Em teste/.test(badge),
     available: /Dispon/.test(badge), video: video ? { src: video[1], poster: video[2], title: decode(video[3]) } : null };
 });
@@ -59,7 +61,7 @@ const lastmodOf = (file) => {
 // páginas geradas levam o marcador GEN; as feitas à mão não têm e não são reescritas (só o título é ajustado)
 const GEN = '<!-- gerado por tools/build-games.mjs: edite o card em index.html, não esta página -->';
 const isGen = (slug) => existsSync(join(ROOT, slug, 'index.html')) && readFileSync(join(ROOT, slug, 'index.html'), 'utf8').includes(GEN);
-const pages = cards.filter((g) => g.slug && g.img && (!existsSync(join(ROOT, g.slug, 'index.html')) || isGen(g.slug)));
+const pages = cards.filter((g) => g.slug && (!existsSync(join(ROOT, g.slug, 'index.html')) || isGen(g.slug)));
 const handMade = cards.filter((g) => g.slug && existsSync(join(ROOT, g.slug, 'index.html')) && !isGen(g.slug));
 const pageGames = [...pages, ...handMade];
 
