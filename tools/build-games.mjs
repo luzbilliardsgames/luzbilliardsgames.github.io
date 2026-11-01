@@ -33,7 +33,8 @@ let index = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const cards = [...index.matchAll(/<article class="game-card">([\s\S]*?)<\/article>/g)].map((m) => {
   const c = m[1];
   const img = c.match(/<img src="((?:game-[^"]+|[a-z-]+\/img\/[^"]+)\.jpg)" alt="([^"]*)"/);
-  const play = c.match(/href="(https:\/\/play\.google\.com\/[^"]+)"/)?.[1] ?? null;
+  const play = c.match(/href="(https:\/\/play\.google\.com\/store\/[^"]+)"/)?.[1] ?? null;
+  const testLink = c.match(/href="(https:\/\/play\.google\.com\/apps\/testing\/[^"]+)"/)?.[1] ?? null;
   const badge = c.match(/<span class="badge[^"]*">([^<]+)<\/span>/)?.[1].trim() ?? '';
   const video = c.match(/data-video="([^"]+)" data-poster="([^"]+)" data-title="([^"]*)"/);
   const info = c.match(/<div class="game-info">([\s\S]*?)<\/div>\s*<\/article>?/)?.[1] ?? c;
@@ -41,7 +42,7 @@ const cards = [...index.matchAll(/<article class="game-card">([\s\S]*?)<\/articl
   const genre = decode(info.match(/<p class="game-genre">([^<]+)<\/p>/)[1]);
   const desc = decode(info.match(/<\/h3>\s*<p>([\s\S]*?)<\/p>/)[1]);
   const slug = img ? (img[1].startsWith('game-') ? img[1].replace(/^game-/, '').replace(/\.jpg$/, '').replace(/_/g, '-') : img[1].split('/')[0]) : null;
-  return { name, genre, desc, slug, img: img ? { src: img[1], alt: decode(img[2]) } : null, play, badge, testing: /Em teste/.test(badge),
+  return { name, genre, desc, slug, img: img ? { src: img[1], alt: decode(img[2]) } : null, play, testLink, badge, testing: /Em teste/.test(badge),
     available: /Dispon/.test(badge), video: video ? { src: video[1], poster: video[2], title: decode(video[3]) } : null };
 });
 if (cards.length < 15) throw new Error(`cards encontrados: ${cards.length}`);
@@ -100,7 +101,7 @@ const pageHtml = (g) => {
   const cta = g.play
     ? `<a class="btn-store" href="${esc(g.play)}" target="_blank" rel="noopener">Baixe grátis no Google Play</a>`
     : g.testing
-      ? `<a class="btn-tester" href="../#testador">Seja testador</a>`
+      ? `<a class="btn-tester" href="${esc(g.testLink || '../#testador')}"${g.testLink ? ' target="_blank" rel="noopener"' : ''}>${g.testLink ? 'Entrar no teste fechado' : 'Seja testador'}</a>`
       : '';
   const privacy = PRIVACY[g.slug] ? `<p class="game-privacy">Política de privacidade: <a href="${esc(PRIVACY[g.slug])}" rel="noopener">${esc(g.name)}</a></p>` : '';
   return `<!DOCTYPE html>
