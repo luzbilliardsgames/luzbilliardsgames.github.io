@@ -25,6 +25,7 @@ const PRIVACY = {
   'ember-ninja': 'https://ember-ninja-game.web.app/privacy',
   'kiri': 'https://kiri-arvoria.web.app',
   'reservatorio-de-doces': 'reservatorio-de-doces/privacy.html',
+  'umbra-strike': 'umbra-strike/privacy.html',
 };
 
 let index = readFileSync(join(ROOT, 'index.html'), 'utf8');
