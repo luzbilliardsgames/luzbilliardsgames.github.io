@@ -26,6 +26,11 @@
         .game-page h1 { margin: 0 0 6px; }
         .game-page .game-page-shot { width: 100%; height: auto; border-radius: 12px; margin: 8px 0 20px; }
         .game-page .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+        .game-page .game-page-gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; margin-bottom: 20px; }
+        .game-page .game-page-gallery a { flex: none; scroll-snap-align: start; }
+        .game-page .game-page-gallery img { display: block; height: 320px; width: auto; border-radius: 10px; background: #000; }
+        .game-page .game-page-gallery img.wide { height: 220px; }
+        @media (max-width: 600px) { .game-page .game-page-gallery img { height: 260px; } .game-page .game-page-gallery img.wide { height: 160px; } }
         .game-page .game-page-others { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; padding: 0; list-style: none; }
         .game-page .game-page-others a { display: block; padding: 12px; border-radius: 10px; background: rgba(255,255,255,.06); color: inherit; text-decoration: none; }
     </style>
@@ -52,6 +57,8 @@
         <img class="game-page-shot" src="../game-operacao-morro.jpg" alt="Policial de elite observando o morro ao pôr do sol, com o Pão de Açúcar ao fundo" width="1024" height="500" fetchpriority="high">
         <p>FPS tático numa comunidade fictícia do Rio: vielas, lajes e avenidas abertas, cada terreno pedindo uma arma diferente. Campanha de nove missões, do estande de tiro à orla debaixo de chuva.</p>
         <div class="cta"><a class="btn-store" href="https://play.google.com/store/apps/details?id=com.luzbilliardsgames.operacaomorro" target="_blank" rel="noopener">Baixe grátis no Google Play</a><a class="btn-ghost" href="../#jogos">Ver todos os jogos</a></div>
+        <h2>Capturas de tela</h2>
+        <div class="game-page-gallery" tabindex="0" aria-label="Capturas de tela do Operação Morro"><a href="shots/1.jpg" target="_blank" rel="noopener"><img src="shots/1.jpg" alt="Captura de tela 1 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a><a href="shots/2.jpg" target="_blank" rel="noopener"><img src="shots/2.jpg" alt="Captura de tela 2 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a><a href="shots/3.jpg" target="_blank" rel="noopener"><img src="shots/3.jpg" alt="Captura de tela 3 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a><a href="shots/4.jpg" target="_blank" rel="noopener"><img src="shots/4.jpg" alt="Captura de tela 4 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a><a href="shots/5.jpg" target="_blank" rel="noopener"><img src="shots/5.jpg" alt="Captura de tela 5 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a><a href="shots/6.jpg" target="_blank" rel="noopener"><img src="shots/6.jpg" alt="Captura de tela 6 do Operação Morro" width="1280" height="720" loading="lazy" decoding="async" class="wide"></a></div>
         
         
         <h2>Outros jogos da Luz</h2>

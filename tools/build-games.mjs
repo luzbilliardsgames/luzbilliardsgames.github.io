@@ -5,7 +5,7 @@
 //   - títulos com até 60 caracteres nas páginas de jogo (inclusive as feitas à mão);
 //   - sitemap.xml com todas as páginas e lastmod da última alteração no git.
 // Uso: npm run build   (roda redirect-apps.mjs e depois este script). Não cria páginas para jogos sem screenshot.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -48,6 +48,23 @@ const cards = [...index.matchAll(/<article class="game-card">([\s\S]*?)<\/articl
     available: /Dispon/.test(badge), video: video ? { src: video[1], poster: video[2], title: decode(video[3]) } : null };
 });
 if (cards.length < 15) throw new Error(`cards encontrados: ${cards.length}`);
+
+// Screenshots da Play em <slug>/shots/<n>.jpg (baixados do Play Console). Largura e altura lidas do cabeçalho JPEG.
+const jpegSize = (buf) => {
+  for (let i = 2; i < buf.length - 9;) {
+    if (buf[i] !== 0xff) { i++; continue; }
+    const m = buf[i + 1];
+    if (m >= 0xc0 && m <= 0xc2) return { h: buf.readUInt16BE(i + 5), w: buf.readUInt16BE(i + 7) };
+    i += 2 + buf.readUInt16BE(i + 2);
+  }
+  return null;
+};
+const shotsOf = (slug) => {
+  const dir = join(ROOT, slug, 'shots');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((f) => /^\d+\.jpg$/.test(f)).sort((a, b) => parseInt(a) - parseInt(b))
+    .map((f) => ({ src: `shots/${f}`, ...(jpegSize(readFileSync(join(dir, f))) || { w: 1280, h: 720 }) }));
+};
 
 // ---------- páginas ----------
 const titleFor = (g) => [`${g.name} — jogo Android | Luz Billiards Games`, `${g.name} — jogo para Android`, `${g.name} | Luz Billiards Games`, g.name]
@@ -98,6 +115,9 @@ const pageHtml = (g) => {
   ];
   const others = pageGames.filter((o) => o.slug !== g.slug).slice(0, 4);
   const mediaImg = g.img ? `<img class="game-page-shot" src="../${g.img.src}" alt="${esc(g.img.alt)}" width="1024" height="500" fetchpriority="high">` : '';
+  const shots = shotsOf(g.slug);
+  const gallery = shots.length ? `<h2>Capturas de tela</h2>
+        <div class="game-page-gallery" tabindex="0" aria-label="Capturas de tela do ${esc(g.name)}">${shots.map((sh, i) => `<a href="${sh.src}" target="_blank" rel="noopener"><img src="${sh.src}" alt="Captura de tela ${i + 1} do ${esc(g.name)}" width="${sh.w}" height="${sh.h}" loading="lazy" decoding="async" class="${sh.h > sh.w ? 'tall' : 'wide'}"></a>`).join('')}</div>` : '';
   const trailer = g.video ? `<h2>Trailer</h2>
         <video controls playsinline preload="none" poster="../${g.video.poster}" src="../${g.video.src}" style="width:100%;border-radius:12px;background:#000" aria-label="${esc(g.video.title)}">Seu navegador não reproduz vídeo. <a href="../${g.video.src}">Baixar o trailer</a>.</video>` : '';
   const cta = g.play
@@ -134,6 +154,11 @@ const pageHtml = (g) => {
         .game-page h1 { margin: 0 0 6px; }
         .game-page .game-page-shot { width: 100%; height: auto; border-radius: 12px; margin: 8px 0 20px; }
         .game-page .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+        .game-page .game-page-gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; margin-bottom: 20px; }
+        .game-page .game-page-gallery a { flex: none; scroll-snap-align: start; }
+        .game-page .game-page-gallery img { display: block; height: 320px; width: auto; border-radius: 10px; background: #000; }
+        .game-page .game-page-gallery img.wide { height: 220px; }
+        @media (max-width: 600px) { .game-page .game-page-gallery img { height: 260px; } .game-page .game-page-gallery img.wide { height: 160px; } }
         .game-page .game-page-others { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; padding: 0; list-style: none; }
         .game-page .game-page-others a { display: block; padding: 12px; border-radius: 10px; background: rgba(255,255,255,.06); color: inherit; text-decoration: none; }
     </style>
@@ -148,6 +173,7 @@ const pageHtml = (g) => {
         ${mediaImg}
         <p>${esc(g.desc)}</p>
         <div class="cta">${cta}<a class="btn-ghost" href="../#jogos">Ver todos os jogos</a></div>
+        ${gallery}
         ${trailer}
         ${privacy}
         <h2>Outros jogos da Luz</h2>
